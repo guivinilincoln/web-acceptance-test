@@ -1,0 +1,44 @@
+package driver;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+
+public class Wait {
+
+    private WebDriver driver;
+
+    public Wait(WebDriver driver) {
+        this.driver = driver;
+    }
+
+    private void waitUntilCondition(ExpectedCondition condition, String timeoutMessage, int timeout) {
+        WebDriverWait wait = new WebDriverWait(driver, timeout);
+        wait.withMessage(timeoutMessage);
+        wait.until(condition);
+    }
+
+    public void esperarCarregamentoDaPagina(int timeout){
+        ExpectedCondition<Object> condition = ExpectedConditions.jsReturnsValue("return document.readyState==\"complete\";");
+        String timeoutMessage = "A página não carregou depois de " + Integer.toString(timeout) + " segundos.";
+        waitUntilCondition(condition, timeoutMessage, timeout);
+    }
+
+    public void esperarElementoSerExibido(int timeout, WebElement webElement, String webElementName){
+        ExpectedCondition<WebElement> condition = ExpectedConditions.visibilityOf(webElement);
+        String timeoutMessage = webElementName + " não foi exibido depois de " + Integer.toString(timeout) + " segundos.";
+        waitUntilCondition(condition, timeoutMessage, timeout);
+    }
+
+    public void esperarElementosSeremExibidos(int timeout, By elementLocator, String elementName){
+        ExpectedCondition<List<WebElement>> condition = ExpectedConditions.presenceOfAllElementsLocatedBy(elementLocator);
+        String timeoutMessage = elementName + " os elementos não foram exibidos após " + Integer.toString(timeout) + " segundos.";
+        waitUntilCondition(condition, timeoutMessage, timeout);
+    }
+}
