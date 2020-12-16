@@ -1,5 +1,9 @@
 package driver;
 
+/**Classe ter melhor rastreabilidade e controle na utilização do wait .
+* @author Guilherme Martins
+*/
+
 import java.util.List;
 
 import org.openqa.selenium.By;

@@ -1,5 +1,10 @@
 package driver;
 
+/**Classe para fazer a escolha do tipo de browser, essa classe poderá ser utilizada posteriormente para testes customizados, 
+* onde o browser possa impactar na execução .
+* @author Guilherme Martins
+*/
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -8,7 +13,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import cucumber.api.java.Before;
 
 public class Setup {
-
+	
+	
+	
     public static WebDriver driver;
 
     @Before

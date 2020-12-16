@@ -1,5 +1,9 @@
 package driver;
 
+/**Classe para coletar evidências após o teste chegar no último passo .
+* @author Guilherme Martins
+*/
+
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -15,7 +19,7 @@ public class TearDown {
         this.driver = Setup.driver;
     }
 
-    @After
+    @After // O teste falhando ou passando a automação recolhe evidência
     public void quitDriver(Scenario scenario){
         if(scenario.isFailed()){
            saveScreenshotsForScenario(scenario);
@@ -27,7 +31,7 @@ public class TearDown {
 
     private void saveScreenshotsForScenario(final Scenario scenario) {
 
-        final byte[] screenshot = ((TakesScreenshot) driver)
+        final byte[] screenshot = ((TakesScreenshot) driver) 
                 .getScreenshotAs(OutputType.BYTES);
         scenario.embed(screenshot, "image/png");
     }

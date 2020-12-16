@@ -9,9 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import base.BasePage;
 
 public class LoginPage extends BasePage {
-	
-	private static final String HOME_PAGE_URL = "http://automationpractice.com/index.php?controller=authentication&back=my-account";
-	
+		
 	@FindBy(id = "email")
 	WebElement inputEmail; 
 	

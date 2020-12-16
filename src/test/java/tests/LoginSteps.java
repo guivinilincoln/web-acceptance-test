@@ -21,7 +21,7 @@ public class LoginSteps {
 	}
 	
 	@Dado("eu faço login com {string} e {string}")
-	public void eu_faþo_login_com_e(String email, String senha) {
+	public void eu_faco_login_com_e(String email, String senha) {
 	    telaInicial.homePage();
 	    telaInicial.btnSingIn();
 	    telaDeLogin.informarEmail(email);

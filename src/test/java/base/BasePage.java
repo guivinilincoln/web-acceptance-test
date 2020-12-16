@@ -1,5 +1,9 @@
 package base;
 
+/**Classe base para implementação nas classes de page.
+* @author Guilherme Martins
+*/
+
 import org.openqa.selenium.WebDriver;
 
 import driver.Setup;
